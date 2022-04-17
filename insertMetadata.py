@@ -91,23 +91,3 @@ for i in data:
         json.dump(token, outfile, indent=4)
 
 f.close()
-
-
-# # for each line in the list...
-# for myFile in fileList:
-#     # create the input file and prepare for writing
-#     with open(inputFileLocation + myFile + '.csv', 'w', newline='') as inputFileCSV:
-#         # create writer object
-#         resultsFileWriter = csv.writer(inputFileCSV)
-#         # file creation based on keywords in file name
-#         if 'grades' in myFile:
-#             if 'quiz' in myFile:
-#                 resultsFileWriter(['name', 'question', 'result', 'comment']) # header row
-#                 for row in inputMatrix_df.itertuples():
-#                     # write to file
-#                     if row.Result != "True":
-#                         resultsFileWriter.writerow([row.name, row.question, row.result, row.comment])
-#                     else:
-#                         resultsFileWriter.writerow([row.name, row.question, row.result, "N/A"])
-#             elif 'exam' in myFile:
-#                 # do stuff
