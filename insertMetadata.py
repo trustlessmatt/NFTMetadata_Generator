@@ -35,9 +35,6 @@ if not os.path.exists('./metadata'):
 
 data = json.load(f)
 
-# Changes this IMAGES_BASE_URL to yours 
-IMAGES_BASE_URL = "uploaded images URL"
-
 def getAttribute(key, value):
     return {
         "trait_type": key,
@@ -46,7 +43,7 @@ def getAttribute(key, value):
 
 for i in data:
     token_id = i['tokenId']
-    share = i['share']
+    share = i['share'] * 10
     addy = i['address']
     token = {
         "name": str(i['name']).strip(),
@@ -66,7 +63,11 @@ for i in data:
           "creators": [
             {
               "address": "J7T25FgKxrHqL7CpX8r6kSMcSRgST21mgkf5jCtw1z6j", # DAO addy
-              "share": 100 - share
+              "share": 70 - share
+            },
+            {
+              "address": "13JRnpvnSXqjUMAn1RbJjurMVpJHcwZYfdTNaNM4Pegm", # Fox addy
+              "share": 30
             },
             {
               "address": str(addy).strip(), #royalty addy
@@ -84,8 +85,11 @@ for i in data:
     token["attributes"].append(getAttribute("Skin", i["Skin"]))
     token["attributes"].append(getAttribute("Chain", i["Chain"]))
     token["attributes"].append(getAttribute("Neck Tat", i["Neck Tat"]))
-    token["attributes"].append(getAttribute("Arm Tat", i["Arm Tat"]))
-    token["attributes"].append(getAttribute("Special", i["Special"]))
+    token["attributes"].append(getAttribute("Special Arm Tat", i["Special Arm Tat"]))
+    token["attributes"].append(getAttribute("One of One Item", i["One of One Item"]))
+    token["attributes"].append(getAttribute("Extra Item", i["Extra Item"]))
+    token["attributes"].append(getAttribute("Special Combo", i["Special Combo"]))
+    token["attributes"].append(getAttribute("Number of Items", i["Number of Items"]))
 
     with open('./metadata/' + str(token_id) + ".json", 'w', newline='') as outfile:
         json.dump(token, outfile, indent=4)
