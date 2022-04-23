@@ -28,7 +28,7 @@ import json
 
 #### Generate Metadata for each Image    
 
-f = open('./combos_test.json',) 
+f = open('./combos_batch1.json',) 
 
 if not os.path.exists('./metadata'):
     os.makedirs('./metadata')
@@ -43,14 +43,15 @@ def getAttribute(key, value):
 
 for i in data:
     token_id = i['tokenId']
-    share = i['share'] * 10
+    share = int(i['share']) * 10
     addy = i['address']
     token = {
         "name": str(i['name']).strip(),
         "symbol": "COMBO",
         "image": str(token_id) + '.png', #IMAGES_BASE_URL + 
-        "description": "You've picked up some tasty treats, and now you've minted them into a Mickey's combo. Get ready to stake that shiz!",
+        "description": "A combo of Mickey's finest menu items - Stake this for $DUST or you're probably NGMI.  Visit us at http://www.mickeydegods.com/ and follow us @mickeydegods on Twitter.",
         "tokenId": token_id,
+        "external_url": "http://www.mickeydegods.com/",
         "seller_fee_basis_points": 1000,
         "properties": {
           "files": [
