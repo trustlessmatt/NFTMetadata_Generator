@@ -28,7 +28,7 @@ import json
 
 #### Generate Metadata for each Image    
 
-f = open('./combos_batch1.json',) 
+f = open('./combos_batch1_V2.json',) 
 
 if not os.path.exists('./metadata'):
     os.makedirs('./metadata')
@@ -47,9 +47,9 @@ for i in data:
     addy = i['address']
     token = {
         "name": str(i['name']).strip(),
-        "symbol": "COMBO",
+        "symbol": "COMBOS",
         "image": str(token_id) + '.png', #IMAGES_BASE_URL + 
-        "description": "A combo of Mickey's finest menu items - Stake this for $DUST or you're probably NGMI.  Visit us at http://www.mickeydegods.com/ and follow us @mickeydegods on Twitter.",
+        "description": "A delicious combo of Mickey's finest menu items - Stake this for $DUST or you're probably NGMI.  Visit us at http://www.mickeydegods.com/ and follow us @mickeydegods on Twitter.",
         "tokenId": token_id,
         "external_url": "http://www.mickeydegods.com/",
         "seller_fee_basis_points": 1000,
@@ -76,6 +76,7 @@ for i in data:
             }
           ]
         },
+        "collection": {"name": "Mickeys Combos", "family": "Mickey Degods"},
         "attributes": []
     }
     token["attributes"].append(getAttribute("Item 1", i["Item 1"]))
