@@ -28,7 +28,7 @@ import json
 
 #### Generate Metadata for each Image    
 
-f = open('./combos_batch4.json',) 
+f = open('./combos_batch8.json',) 
 
 if not os.path.exists('./metadata'):
     os.makedirs('./metadata')

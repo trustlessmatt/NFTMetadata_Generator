@@ -24,3 +24,7 @@ yarn-error.log*
 
 /metadata
 *.xlsx
+*.csv
+combos_batch*
+/archive
+mickeydegods_hashlist*
